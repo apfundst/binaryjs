@@ -6,7 +6,8 @@ var server = BinaryServer({port: 9000});
 // Wait for new user connections
 server.on('connection', function(client){
   // Stream a flower as a hello!
-  var file = fs.createReadStream(__dirname + '/flower.png');
+  console.log("connection");
+  var file = fs.createReadStream('/Users/drewpfundstein/Dropbox/Camera 1' + '/Vid4-Left.MP4');
   client.send(file); 
 });
 

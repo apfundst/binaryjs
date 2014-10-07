@@ -1,5 +1,10 @@
 <html>
 <head>
+  <video width="320" height="240" controls>
+  <source  type="video/mp4">
+  
+Your browser does not support the video tag.
+</video>
   <script src="http://cdn.binaryjs.com/0/binary.js"></script>
   <script>
     // Connect to Binary.js server
@@ -8,15 +13,32 @@
     client.on('stream', function(stream, meta){    
       // Buffer for parts
       var parts = [];
+      var sourceMP4 = document.querySelector("source"); 
+      vid = new Blob();
+
       // Got new data
       stream.on('data', function(data){
         parts.push(data);
+        vid.
+        sourceMP4.src = (window.URL || window.webkitURL).createObjectURL(vid);
+
       });
       stream.on('end', function(){
-        // Display new data in browser!
-        var img = document.createElement("img");
-        img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(parts));
-        document.body.appendChild(img);
+        //Display new data in browser!
+        //var img = document.createElement("video");
+        //img.setAttribute('width ', '700');
+        //img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(parts));
+        //document.body.appendChild(img);
+
+        // var videlem = document.createElement("video");
+        // videlem.videoWidth = 700;
+        // /// ... some setup like poster image, size, position etc. goes here...
+        // /// now, add sources:
+        //var sourceMP4 = document.querySelector("source"); 
+        // sourceMP4.type = "video/mp4";
+        //sourceMP4.src = (window.URL || window.webkitURL).createObjectURL(new Blob(parts));
+        // videlem.appendChild(sourceMP4);
+        // document.body.appendChild(videlem);
       });
     });
   </script>
