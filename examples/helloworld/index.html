@@ -19,8 +19,8 @@ Your browser does not support the video tag.
       // Got new data
       stream.on('data', function(data){
         parts.push(data);
-        vid.
-        sourceMP4.src = (window.URL || window.webkitURL).createObjectURL(vid);
+
+        sourceMP4.src = (window.URL || window.webkitURL).createObjectURL(vid(parts));
 
       });
       stream.on('end', function(){
